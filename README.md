@@ -1,75 +1,56 @@
 # Synthesis-and-analysis-of-algorithms
 Some exercises and course work on synthesis and analysis of algorithms.
-# php-rest-telbook/server
 
-The backend. It uses a MySql database to persist the data. A sample database is in the `db/` subdirectory.
+The context of each folder is as follow:
 
-## index.php 
+## Exercise1 
 
-Setups all objects needed for `database`, `error handling`, `request` and `response`.
-
-  - `$db` instance of MysqliBinder
-  - `$request` instance of JsonRequest
-  - `$response` instance of JsonResponse
+GMD - greatest_common_divisor with different functions and methods.
   
-**Calls `router.php` at the end**
+## Exercise2 
 
-## router.php 
+The bracket balance check algorithm in an expression using a dynamic stack implementation.
 
-Evaluates the request URL and renders JSON output. 
-Contains `if-elseif-else` structure for routing. The final else is for 404 (Not Found).
-At the end renders the response as JSON.
+## Exercise4 
 
-# php-rest-telbook/server/include
+Priority queue in which they are introduced tasks to perform. The program functions for adding and deleting are implemented
+of an element in the priority queue, as well as a queue printing function. Dynamic conversion used.
 
-## include/JsonRequest.php
+## Exercise6 
 
-Parses input environment. Provides test methods for the router.
+ - Ex1 - A program that implements the algorithm for sorting an array by merging. Merge-sort algorithm.
+ - Ex2 - Fibonacci algorithm 
 
-### Methods:
+## Exercise9
 
-  - `get($regexp)` returns true if URL matches `$regexp` and method is `GET`
-  - `put($regexp)` returns true if URL matches `$regexp` and method is `PUT`
-  - `post($regexp)` returns true if URL matches `$regexp` and method is `POST`
-  - `delete($regexp)` returns true if URL matches `$regexp` and method is `DELETE`
-  - `any($regexp)` returns true if URL matches `$regexp`
-  - `segment($n)` returns the value of the `$n`-th segment
-  
-### Properties:
+- Ex1 - Quick sort algorithm
+- Ex2 - Digital sort algorithm 
 
-  - `$path` contains the `PATH` part of the URL
-  - `method` contains `GET` `POST` `DELETE` etc.
-  - `data` contains parsed JSON sent from the browser
+## Exercise10
 
-## include/JsonResponse.php
+- Selection sort algorithm
+- Insertion sort algorithm 
+- Bubble sort algorithm
+- Merge-sort sort algorithm
+- Quick sort algorithm 
+- Digital sort algorithm 
 
-Creates JSON serialized response. It is used even in case of an error.
-  
-### Methods:
-  - `code($code)` Sets the HTTP status code
-  - `info($message)` Adds a success message to `->messages[]`
-  - `error($message)` Adds an error message to `->messages[]`
+## Exercise11
 
-### Properties:
+- A tree for which each of the leaves contains a number from 1 to 9, and the other tops and roots contain the operations +, - and *. Crawl the tree to obtain the arithmetic expression in a form convenient for human perception (operand operation operand). After
+the ‘=’ sign is displayed at the end of the expression and the value of the expression is printed.
 
-Whatever you add as a dynamic property it will be encoded within the output JSON.
-It is marked `...` below.
+## Exercise12
 
-### Rendered JSON structure is:
-  
-  - `code` duplicate of the HTTP status code
-  - `messages` an array of success of error messages
-  - `...` the object or array of the actual data payload
-  
-## include/MysqliBinder.php
+- Ex1 - Separate functions for each of the algorithms for search (non-recursive) of an element in an array.
+- Ex2 - Implement the functions for adding, searching and deleting an item in a binary search tree.
 
-Provides easy anti-injection pattern through `?` markers and arguments.
+## Exercise13
 
-### Methods:
+- Ex1 - A program that implements the algorithm for traversing a graph in depth.
+The graph is set by a neighborhood matrix.
+- Ex2 - A program that checks if a graph contains loops. For this purpose, the depth crawling algorithm implemented in exercise 1 is used.
 
-  - `bind($sql, $args)` Replaces all `?` in `$sql` with corresponding `$args[N]`. Escapes.
-  - `querybind($sql, $args)` Same as above but executes the `$sql`. Good for `INSERT`, `UPDATE`, `DELETE`
-  - `querybind_one($sql, $args)` Executes the `$sql` and returns first row as object. Good for `SELECT` by primary key.
-  - `querybind_all($sql, $args)` Executes the `$sql` and returns all rows as array of object. Good for `SELECT`.
-  
-    Example: `$db->querybind_all('SELECT * FROM telephones WHERE person_id=?', [3]);`
+## SAA_KR
+
+Implementation of an algorithm that builds a pyramid of n numbers.
